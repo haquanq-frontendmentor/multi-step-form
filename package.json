@@ -1,5 +1,8 @@
 {
   "name": "multi-step-form",
+  "description": "Solution for frontendmentor.io challenge: multi-step-form",
+  "author": "haquanq",
+  "license": "MIT",
   "private": true,
   "version": "0.0.0",
   "type": "module",
