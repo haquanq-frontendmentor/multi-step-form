@@ -14,7 +14,13 @@ export const SubscriptionSummary = () => {
   addons.forEach((addon) => (addon.price *= billing.multiplier));
 
   const period = billing.label === "monthly" ? "mo" : "yr";
-  const totalPerMonth = (addons.reduce((a, x) => a + x.price, 0) + plan.price) / (billing.multiplier === 1 ? 1 : 12);
+  const totalPerMonth = (
+    (addons.reduce((a, x) => a + x.price, 0) + plan.price) /
+    (billing.multiplier === 1 ? 1 : 12)
+  ).toLocaleString(undefined, {
+    maximumFractionDigits: 2,
+    minimumFractionDigits: 2,
+  });
 
   const { setStep } = useContext(SubscriptionContext) as SubscriptionContextState;
 
