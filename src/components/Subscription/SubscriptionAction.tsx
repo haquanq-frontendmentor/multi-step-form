@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { useFormContext } from "react-hook-form";
+import { cn } from "../../utils/cn";
 import { Button } from "../common/Button";
 import { SubscriptionContext, type SubscriptionContextState } from "./contexts/SubscriptionContext";
 import type { SubscriptionData } from "./types/SubscriptionData";
@@ -30,15 +31,15 @@ export const PlanFormAction = () => {
       ) : (
         <div></div>
       )}
-      {step < 4 ? (
+      {step < 4 && (
         <Button type="button" onClick={handleNextStepClick}>
           Next Step
         </Button>
-      ) : (
-        <Button variant="secondary" type="submit">
-          Confirm
-        </Button>
       )}
+
+      <Button className={cn("hidden", step === 4 && "block")} variant="secondary" type="submit">
+        Confirm
+      </Button>
     </div>
   );
 };
