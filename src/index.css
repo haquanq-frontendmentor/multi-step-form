@@ -63,6 +63,9 @@
 
     --font-*: initial;
     --font-weight-*: initial;
+    --font-weight-normal: 400;
+    --font-weight-medium: 500;
+    --font-weight-bold: 700;
 
     --text-*: initial;
 
