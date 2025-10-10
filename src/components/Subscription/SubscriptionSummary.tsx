@@ -1,4 +1,6 @@
+import { useContext } from "react";
 import { useFormContext } from "react-hook-form";
+import { SubscriptionContext, type SubscriptionContextState } from "./contexts";
 import type { SubscriptionData } from "./types";
 
 export const SubscriptionSummary = () => {
@@ -14,6 +16,8 @@ export const SubscriptionSummary = () => {
   const period = billing.label === "monthly" ? "mo" : "yr";
   const totalPerMonth = (addons.reduce((a, x) => a + x.price, 0) + plan.price) / (billing.multiplier === 1 ? 1 : 12);
 
+  const { setStep } = useContext(SubscriptionContext) as SubscriptionContextState;
+
   return (
     <section>
       <div className="mb-6 flex flex-col gap-2 sm:mb-8 md:mb-10">
@@ -24,7 +28,11 @@ export const SubscriptionSummary = () => {
         <div className="flex items-center justify-between">
           <div>
             <p className="text-sm-2 capitalize">{`${plan.name} (${billing.label})`}</p>
-            <button className="text-sm-1 text-gray-500 transition-colors hover:text-purple-600" type="button">
+            <button
+              className="text-sm-1 text-gray-500 transition-colors hover:text-purple-600"
+              type="button"
+              onClick={() => setStep(2)}
+            >
               Change
             </button>
           </div>
