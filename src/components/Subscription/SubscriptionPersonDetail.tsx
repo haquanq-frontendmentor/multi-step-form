@@ -48,6 +48,10 @@ export const SubscriptionPersonDetail = () => {
           {...register("phone", {
             required: "This field is required",
             maxLength: { message: "Maximum 15 digits", value: 15 },
+            pattern: {
+              value: /^[0-9-]+$/g,
+              message: "Invalid phone number",
+            },
           })}
         />
       </div>
