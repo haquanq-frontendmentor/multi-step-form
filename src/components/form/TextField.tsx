@@ -20,7 +20,7 @@ export const TextField = ({ label, errorMessage, type = "text", ...restProps }: 
       </div>
       <div className="relative rounded-sm sm:rounded-lg">
         <input
-          className="text-sm-2 md:text-md-2 focus-v peer h-10 w-full rounded-[inherit] px-4 placeholder:text-gray-500 sm:h-12"
+          className="text-sm-2 md:text-md-2 focus-v peer h-10 w-full rounded-[inherit] px-4 text-blue-950 placeholder:text-gray-500 sm:h-12"
           id={inputId}
           type={type}
           aria-invalid={Boolean(errorMessage)}
